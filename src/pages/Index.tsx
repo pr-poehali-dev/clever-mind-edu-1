@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
@@ -110,6 +111,7 @@ const steps = [
 export default function Index() {
   const [activeSubject, setActiveSubject] = useState("Все");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const filtered =
     activeSubject === "Все"
@@ -152,7 +154,7 @@ export default function Index() {
               <Button variant="ghost" size="sm" className="hidden md:flex text-clover-700">
                 Войти
               </Button>
-              <Button size="sm" className="bg-clover-600 hover:bg-clover-700 text-white">
+              <Button size="sm" className="bg-clover-600 hover:bg-clover-700 text-white" onClick={() => navigate("/register")}>
                 Участвовать
               </Button>
               <button
@@ -199,7 +201,7 @@ export default function Index() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
-                <Button size="lg" className="bg-clover-600 hover:bg-clover-700 text-white px-8 h-12 text-base font-semibold">
+                <Button size="lg" className="bg-clover-600 hover:bg-clover-700 text-white px-8 h-12 text-base font-semibold" onClick={() => navigate("/register")}>
                   <Icon name="Play" size={18} className="mr-2" />
                   Принять участие
                 </Button>
@@ -476,10 +478,11 @@ export default function Index() {
             Дипломы, рейтинги и достижения — всё в одном месте!
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Button size="lg" className="bg-white text-clover-700 hover:bg-clover-50 px-8 h-12 font-semibold text-base">
+            <Button size="lg" className="bg-white text-clover-700 hover:bg-clover-50 px-8 h-12 font-semibold text-base" onClick={() => navigate("/register")}>
               <Icon name="Sparkles" size={18} className="mr-2" />
               Зарегистрироваться бесплатно
             </Button>
+
             <Button size="lg" variant="outline" className="border-white/40 text-white hover:bg-white/10 h-12 text-base">
               Узнать подробнее
             </Button>
